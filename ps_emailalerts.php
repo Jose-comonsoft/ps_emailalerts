@@ -520,7 +520,7 @@ class Ps_EmailAlerts extends Module
 
     public function hookDisplayProductAdditionalInfo($params)
     {
-        if (0 < $params['product']['quantity'] ||
+        if (0 < ($params['product']['quantity'] - (int)Tools::getValue('qty')) ||
             !$this->customer_qty ||
             !Configuration::get('PS_STOCK_MANAGEMENT') ||
             Product::isAvailableWhenOutOfStock($params['product']['out_of_stock'])) {
